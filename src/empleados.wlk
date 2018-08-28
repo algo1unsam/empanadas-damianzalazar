@@ -12,11 +12,10 @@ object gimenez {
 }
 
 object baigorria {
-	var cantidadEmpanadasVendidas = 100
+	var cantidadEmpanadasVendidas = 1000
 	var montoPorEmpanada = 15
 	var deuda = 0
 	var dinero = 0
-	var aux = 0
 	
 	method venderEmpanada() { cantidadEmpanadasVendidas += 1 }
 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
@@ -26,11 +25,11 @@ object baigorria {
 	method totalDeuda(){return deuda}
 	method totalDinero(){return dinero}
 	method pagarDeuda(){
-		if dinero > 0 && dinero <= deuda {
+		if (dinero <= deuda){	//if (dinero > 0 && dinero <= deuda) {
 			deuda -= dinero
 			dinero = 0
 		}
-		if dinero > 0 && dinero > deuda{
+		if (dinero > deuda){	//if (dinero > 0 && dinero > deuda){
 			dinero -= deuda
 			deuda = 0
 		}
