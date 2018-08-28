@@ -16,15 +16,25 @@ object baigorria {
 	var montoPorEmpanada = 15
 	var deuda = 0
 	var dinero = 0
+	var aux = 0
 	
 	method venderEmpanada() { cantidadEmpanadasVendidas += 1 }
 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
 	method cambiaMontoEmpanada(nuevoMonto){montoPorEmpanada = nuevoMonto}
-	method cobrarSueldo(){ dinero += cantidadEmpanadasVendidas * montoPorEmpanada
-						   dinero -= deuda }
+	method cobrarSueldo(){dinero += cantidadEmpanadasVendidas * montoPorEmpanada}
 	method gastar(cuanto){deuda += cuanto}
-	method totalDeuda() {return deuda}
+	method totalDeuda(){return deuda}
 	method totalDinero(){return dinero}
+	method pagarDeuda(){
+		if dinero > 0 && dinero <= deuda {
+			deuda -= dinero
+			dinero = 0
+		}
+		if dinero > 0 && dinero > deuda{
+			dinero -= deuda
+			deuda = 0
+		}
+	}
 }
 
 object galvan {
